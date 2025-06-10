@@ -16,25 +16,62 @@
 
 ## 📝 本地安装
 
-### 源代码下载
+### 环境准备
+
+首先确保Node.js版本符合要求（18.0.0或更高版本）：
+
+```bash
+# 查看当前Node.js版本
+node -v
+```
+
+#### Linux (Ubuntu/Debian)
+
+如果版本不符合要求，建议卸载后安装最新版（不能直接覆盖安装，因为会冲突）：
+
+```bash
+# 卸载现有版本
+sudo apt-get remove nodejs
+sudo apt-get purge nodejs
+sudo apt-get autoremove
+
+# 安装最新版本 (Node.js 22.x)
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
+sudo apt-get install -y nodejs
+```
+
+#### Windows
+
+1. 在控制面板中完全卸载现有的Node.js版本
+2. 访问 [https://nodejs.org/en/download](https://nodejs.org/en/download)
+3. 下载最新的Windows安装包
+4. 运行安装包进行安装
+
+### 项目安装
 
 ```bash
 # 克隆项目
 git clone https://github.com/Mriris/mcp-feedback-collector-web.git
 cd mcp-feedback-collector-web
-# 安装依赖
+# 安装并构建
 npm install
+npm run build
 ```
 
-复制 `.env.example`为 `.env` 文件并按需修改
+请确保各个环节无报错。
 
 ### Cursor规则
 
 在Cursor规则中添加以下配置：
 
 ```text
-Whenever you want to ask a question, always call the MCP .
-Whenever you're about to complete a user request, call the MCP instead of simply ending the process. Keep calling MCP until the user's feedback is empty, then end the request. mcp-feedback-collector.collect_feedback
+当需要向用户提问时，务必调用 MCP；在完成用户请求前切勿直接结束流程，而应调用 MCP 并持续执行 mcp-feedback-collector.collect_feedback，直至用户反馈为空后再结束。所有回复（包括代码注释）均须使用简体中文，语言应简明易懂，避免生硬的机器翻译式表述；如需编写或修改代码，请直接在对应文件内完成，勿让用户手动复制。
+```
+
+或
+
+```text
+Whenever you want to ask a question, always call the MCP. Whenever you're about to complete a user request, call the MCP instead of simply ending the process. Keep calling MCP until the user's feedback is empty, then end the request. mcp-feedback-collector.collect_feedback
 ```
 
 ### MCP Tools
@@ -72,7 +109,7 @@ src/
 
 ### 系统要求
 
-- **Node.js**: 20.0.0 或更高版本
+- **Node.js**: 18.0.0 或更高版本
 - **浏览器**: Chrome, Firefox, Safari, Edge
 - **操作系统**: Windows, macOS, Ubuntu
 
