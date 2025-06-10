@@ -13,7 +13,7 @@
 - 💬 **AI对话功能**: 支持第三方AI助手，支持文字和图片对话
 - 🖼️ **图片支持**: 完整的图片上传、处理和显示功能
 - 🌐 **跨平台**: 支持Windows、macOS、Linux
-  
+
 ## 📝 本地安装
 
 ### 源代码下载
@@ -26,7 +26,7 @@ cd mcp-feedback-collector-web
 npm install
 ```
 
-复制`.env.example`为 `.env` 文件并按需修改
+复制 `.env.example`为 `.env` 文件并按需修改
 
 ### Cursor规则
 
@@ -47,7 +47,7 @@ Whenever you're about to complete a user request, call the MCP instead of simply
       "args": ["你的项目路径/dist/cli.js"],
       "env": {
         "MCP_API_KEY": "api-key(可选)",
-        "MCP_API_BASE_URL": "第三方api网址(可选)",
+        "MCP_API_BASE_URL": "http://127.0.0.1",
         "MCP_DEFAULT_MODEL": "模型名称(可选)",
         "MCP_WEB_PORT": "5080",
         "MCP_DIALOG_TIMEOUT": "60000"
@@ -72,13 +72,13 @@ src/
 
 ### 系统要求
 
-- **Node.js**: 18.0.0 或更高版本
-- **浏览器**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
-- **操作系统**: Windows 10+, macOS 10.15+, Ubuntu 18.04+
+- **Node.js**: 20.0.0 或更高版本
+- **浏览器**: Chrome, Firefox, Safari, Edge
+- **操作系统**: Windows, macOS, Ubuntu
 
 ## ⚠️ 注意事项
 
 - 超时时间必须在10-60000秒之间
 - 端口范围必须在1024-65535之间
 - API密钥在生产环境中应妥善保管
-- 图片上传受`MCP_MAX_FILE_SIZE`限制，10MB
+- 图片上传受 `MCP_MAX_FILE_SIZE`限制，10MB
