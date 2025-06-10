@@ -1,9 +1,5 @@
 # 🎯 MCP Feedback Collector
 
-[![npm version](https://badge.fury.io/js/mcp-feedback-collector.svg)](https://www.npmjs.com/package/mcp-feedback-collector)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
-
 基于Node.js的MCP反馈收集器，用于充分利用Cursor额度。
 
 ## ✨ 特性
@@ -12,7 +8,12 @@
 - 🔧 **MCP集成**: 完整支持Model Context Protocol
 - 💬 **AI对话功能**: 支持第三方AI助手，支持文字和图片对话
 - 🖼️ **图片支持**: 完整的图片上传、处理和显示功能
-- 🌐 **跨平台**: 支持Windows、macOS、Linux
+
+## 📋 系统要求
+
+- **Node.js**: 18.0.0 或更高版本
+- **浏览器**: Chrome, Firefox, Safari, Edge
+- **操作系统**: Linux, Windows, macOS
 
 ## 📝 本地安装
 
@@ -27,7 +28,7 @@ node -v
 
 #### Linux (Ubuntu/Debian)
 
-如果版本不符合要求，建议卸载后安装最新版（不能直接覆盖安装，因为会冲突）：
+如果版本不符合要求，并且没有特殊的版本控制需求，建议卸载后安装最新版（不能直接覆盖安装，因为会冲突）：
 
 ```bash
 # 卸载现有版本
@@ -42,7 +43,7 @@ sudo apt-get install -y nodejs
 
 #### Windows
 
-1. 在控制面板中完全卸载现有的Node.js版本
+1. 在控制面板中完全卸载现有的Node.js相关程序
 2. 访问 [https://nodejs.org/en/download](https://nodejs.org/en/download)
 3. 下载最新的Windows安装包
 4. 运行安装包进行安装
@@ -60,6 +61,8 @@ npm run build
 
 请确保各个环节无报错。
 
+## ⚙️ 配置说明
+
 ### Cursor规则
 
 在Cursor规则中添加以下配置：
@@ -75,6 +78,8 @@ Whenever you want to ask a question, always call the MCP. Whenever you're about 
 ```
 
 ### MCP Tools
+
+如果cursor没有其他MCP，直接将以下内容复制即可。否则请仔细观察JSON结构，然后添加进去，注意逗号和括号。
 
 ```json
 {
@@ -94,7 +99,7 @@ Whenever you want to ask a question, always call the MCP. Whenever you're about 
 }
 ```
 
-### 项目架构
+## 🏗️ 项目架构
 
 ```text
 src/
@@ -106,16 +111,3 @@ src/
 ├── types/              # 类型定义
 └── static/             # 静态文件
 ```
-
-### 系统要求
-
-- **Node.js**: 18.0.0 或更高版本
-- **浏览器**: Chrome, Firefox, Safari, Edge
-- **操作系统**: Windows, macOS, Ubuntu
-
-## ⚠️ 注意事项
-
-- 超时时间必须在10-60000秒之间
-- 端口范围必须在1024-65535之间
-- API密钥在生产环境中应妥善保管
-- 图片上传受 `MCP_MAX_FILE_SIZE`限制，10MB
